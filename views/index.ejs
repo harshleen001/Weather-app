@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather prediction</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Will it Rain Tomorrow?</h1>
+    <div class="form">
+      <form action="/predict" method="POST">
+        <label for="city">Enter your city:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+
+    <% if (weather && weather.city) { %>
+      <div class="result">
+        <h2>Weather Prediction for <%= weather.city %></h2>
+        <p>Temperature: <%= weather.temp %>°C</p>
+        <p>Condition: <%= weather.desc %></p>
+        <p><%= weather.rainTomorrow ? "It will rain tomorrow." : "It will not rain tomorrow." %></p>
+      </div>
+    <% } else if (error) { %>
+      <div class="error">
+        <h2>Error</h2>
+        <p><%= error %></p>
+      </div>
+    <% } %>
+
+    <div class="footer">
+      <p>Powered by OpenWeatherMap API</p>
+    </div>
+  </div>
+</body>
+
+</html>
