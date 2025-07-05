@@ -61,7 +61,10 @@ input[type="text"] {
     font-size: 1rem;
     margin-bottom: 10px;
 }
-
+ label{
+    color: #f2f7f6;
+    
+ }
 button {
     padding: 12px 20px;
     background-color: #00c6ff;
